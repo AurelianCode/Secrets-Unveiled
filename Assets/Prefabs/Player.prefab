@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 9085965915908487809}
   - component: {fileID: 462489310154544098}
   - component: {fileID: 6585397882595086230}
-  m_Layer: 10
+  - component: {fileID: 5377169624784337357}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -160,14 +161,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532b6a42a623a1e43a564595bfc1998f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeed: 10
+  normalSpeed: 7
   runSpeed: 15
   jumpPower: 27
-  dashspeed: 40
-  dashDuration: 0.1
+  dashspeed: 30
+  dashDuration: 0.08
   dashCooldown: 0.7
-  climbSpeed: 5
-  jumps: 1
+  climbSpeed: 3
 --- !u!70 &6585397882595086230
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -205,3 +205,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.08555516, y: -0.094344385}
   m_Size: {x: 0.518508, y: 0.820376}
   m_Direction: 0
+--- !u!95 &5377169624784337357
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977830768902855949}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4bce2b5a2ff5d8c4d8851ef4f9565028, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

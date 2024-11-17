@@ -95,13 +95,15 @@ public class PlayerController : MonoBehaviour
 
         if(isMovingHorizontal)
         {
-            animations.SetBool("isRunning",true);
             animations.SetBool("isIdle",false);
+            animations.SetBool("isRunning",true);
+            
         }
         else
         {
-            animations.SetBool("isRunning",false);
             animations.SetBool("isIdle",true);
+            animations.SetBool("isRunning",false);
+            
         }
 
         
@@ -131,26 +133,18 @@ public class PlayerController : MonoBehaviour
         myRigid.linearVelocity = playerClimb;
         myRigid.gravityScale = 0;
         
-        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Climb")) && myRigid.linearVelocityY > 0)
+        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Climb")) && myRigid.linearVelocityY > 0 ||playerCollider.IsTouchingLayers(LayerMask.GetMask("Climb")) && myRigid.linearVelocityY > -1 )
         {
 
-            bool isNowClimbing = true;
-            if(isNowClimbing)
-            {
-                animations.SetBool("isClimbing",true);
-                
-            }
-            else
-            {
-                animations.SetBool("isClimbing",false);
-                return;
-            }
-            
+            animations.SetBool("isClimbing",true);
+            animations.SetBool("isIdle",false);
         }
         
         }
         else
         {
+            animations.SetBool("isClimbing", false);
+            animations.SetBool("isIdle",true);
             myRigid.gravityScale = 10;
             
             
