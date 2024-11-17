@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,11 +37,14 @@ public class PlayerController : MonoBehaviour
 
     public float climbSpeed = 5;
 
+    Animator animations;
+
 
     void Start()
     {
         myRigid = GetComponent<Rigidbody2D> ();
         playerCollider = GetComponent<CapsuleCollider2D>();
+        animations = GetComponent<Animator> ();
     }
     void Update()
     {
@@ -51,6 +55,8 @@ public class PlayerController : MonoBehaviour
         }
         FlipPlayer();
         OnClimb();
+
+        
         
     }
 
@@ -87,6 +93,19 @@ public class PlayerController : MonoBehaviour
 
         bool isMovingHorizontal = Mathf.Abs(myRigid.linearVelocity.x) > Mathf.Epsilon;
 
+        if(isMovingHorizontal)
+        {
+            animations.SetBool("isRunning",true);
+            animations.SetBool("isIdle",false);
+        }
+        else
+        {
+            animations.SetBool("isRunning",false);
+            animations.SetBool("isIdle",true);
+        }
+
+        
+
     }
   
     void OnDash(InputValue inputValue)
@@ -105,17 +124,36 @@ public class PlayerController : MonoBehaviour
 
     void OnClimb()
     {
-        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Climb")))
         {
         
         Vector2 playerClimb = new Vector2(myRigid.linearVelocity.x, moveInput.y * climbSpeed);
         myRigid.linearVelocity = playerClimb;
         myRigid.gravityScale = 0;
+        
+        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Climb")) && myRigid.linearVelocityY > 0)
+        {
+
+            bool isNowClimbing = true;
+            if(isNowClimbing)
+            {
+                animations.SetBool("isClimbing",true);
+                
+            }
+            else
+            {
+                animations.SetBool("isClimbing",false);
+                return;
+            }
+            
+        }
+        
         }
         else
         {
             myRigid.gravityScale = 10;
-            return;
+            
+            
         }
 
     }
@@ -152,5 +190,11 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector2(Math.Sign(myRigid.linearVelocity.x),1f);
 
         }
+    }
+
+    void AnimationHandler()
+    {
+        
+
     }
 }
