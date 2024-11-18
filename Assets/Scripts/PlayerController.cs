@@ -35,6 +35,18 @@ public class PlayerController : MonoBehaviour
 
     public float dashCooldown = 1.5f;
 
+    public float wallJumpSpeed = 40;
+
+    bool isWallJumping = false;
+
+    bool isOnWall = false;
+
+    bool canWallJump= true;
+
+    public float walljumpDuration = 0.2f;
+
+    public float wallJumpCooldown = 0.1f;
+
     public float climbSpeed = 5;
 
     Animator animations;
@@ -186,9 +198,44 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void AnimationHandler()
+    void OnWallJump(InputValue inputValue)
     {
-        
+        if(canWallJump && playerCollider.IsTouchingLayers(LayerMask.GetMask("Wall")))
+        {
+            myRigid.linearVelocityX = 1;
+            StartCoroutine(WallJump());
+            Debug.Log("starting");
 
+        }
+        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Wall")))
+
+            {
+                Debug.Log("Player is touching the wall.");
+            }
     }
+
+private IEnumerator WallJump()
+{
+    // Disable wall jumping while performing the jump
+    canWallJump = false;
+    isWallJumping = true;
+
+
+   
+
+    // Wait for the duration of the wall jump
+    yield return new WaitForSeconds(walljumpDuration);
+
+    // Reset wall jumping state
+    isWallJumping = false;
+
+    // Wait for cooldown before allowing wall jump again
+    yield return new WaitForSeconds(wallJumpCooldown);
+
+    canWallJump = true;
+}
+
+
+
+
 }

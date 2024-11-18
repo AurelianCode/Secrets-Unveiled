@@ -16,7 +16,7 @@ TagManager:
   - Hazards
   - Player
   - Background
-  - 
+  - Wall
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Hazards
     uniqueID: 2022079103
+    locked: 0
+  - name: Wall
+    uniqueID: 3777565713
     locked: 0
   - name: Climb
     uniqueID: 4095922933
