@@ -65,8 +65,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        while(isAlive)
-        {
+        
+        
 
         if(!isDashing)
         {
@@ -74,7 +74,8 @@ public class PlayerController : MonoBehaviour
         }
         FlipPlayer();
         OnClimb();
-        }
+
+        
 
         
         
@@ -210,6 +211,8 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         isAlive = false;
+
+        Debug.Log("Dead");
         
     }
 
