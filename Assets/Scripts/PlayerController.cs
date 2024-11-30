@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         myRigid = GetComponent<Rigidbody2D> ();
         playerCollider = GetComponent<CapsuleCollider2D>();
         animations = GetComponent<Animator> ();
+        
     }
     void Update()
     {
@@ -87,13 +88,6 @@ public class PlayerController : MonoBehaviour
         {
             myRigid.linearVelocity = new Vector2(myRigid.linearVelocity.x, jumpPower);
             
-            
-        if(myRigid.linearVelocity.y < 0)
-            
-            {
-                myRigid.gravityScale = 1.5f;
-                
-            }
         }
         }
     }
@@ -202,7 +196,6 @@ public class PlayerController : MonoBehaviour
     {
         if(canWallJump && playerCollider.IsTouchingLayers(LayerMask.GetMask("Wall")))
         {
-            myRigid.linearVelocityX = 1;
             StartCoroutine(WallJump());
             Debug.Log("starting");
 
@@ -216,12 +209,19 @@ public class PlayerController : MonoBehaviour
 
 private IEnumerator WallJump()
 {
-    // Disable wall jumping while performing the jump
+    
     canWallJump = false;
     isWallJumping = true;
 
+    // Determine horizontal direction based on facing direction
+    float horizontalDirection = playerCollider.transform.localScale.x > 0 ? -1 : 1;
 
-   
+    // Set linear velocity for the wall jump
+    myRigid.linearVelocity = new Vector2(horizontalDirection * -wallJumpSpeed, jumpPower);
+
+    Debug.Log($"WallJump: HorizontalDirection={horizontalDirection}, Velocity={myRigid.linearVelocity}");
+
+    
 
     // Wait for the duration of the wall jump
     yield return new WaitForSeconds(walljumpDuration);
@@ -232,10 +232,14 @@ private IEnumerator WallJump()
     // Wait for cooldown before allowing wall jump again
     yield return new WaitForSeconds(wallJumpCooldown);
 
+    Debug.Log("Completed");
+
     canWallJump = true;
 }
 
-
-
-
 }
+
+
+
+
+

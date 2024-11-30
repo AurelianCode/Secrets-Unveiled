@@ -17,8 +17,8 @@ TagManager:
   - Player
   - Background
   - Wall
-  - 
-  - 
+  - Bouncy
+  - Enemies
   - 
   - 
   - 
@@ -55,6 +55,12 @@ TagManager:
     locked: 0
   - name: Climb
     uniqueID: 4095922933
+    locked: 0
+  - name: Bouncy
+    uniqueID: 2290620373
+    locked: 0
+  - name: Enemies
+    uniqueID: 1481680883
     locked: 0
   - name: Player
     uniqueID: 3927386853

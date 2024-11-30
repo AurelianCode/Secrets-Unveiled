@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Mass: 100
   m_LinearDamping: 1
   m_AngularDamping: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -167,8 +167,8 @@ MonoBehaviour:
   dashspeed: 30
   dashDuration: 0.08
   dashCooldown: 0.7
-  wallJumpSpeed: 100
-  walljumpDuration: 0.2
+  wallJumpSpeed: -100
+  walljumpDuration: 1
   wallJumpCooldown: 0
   climbSpeed: 3
 --- !u!70 &6585397882595086230

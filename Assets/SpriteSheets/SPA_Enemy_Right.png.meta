@@ -131,10 +131,10 @@ TextureImporter:
       name: SPA_Enemy_Right_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 6
-        width: 26
-        height: 22
+        x: 15
+        y: 7
+        width: 24
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: SPA_Enemy_Right_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 6
-        width: 26
-        height: 20
+        x: 53
+        y: 7
+        width: 24
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: SPA_Enemy_Right_2
       rect:
         serializedVersion: 2
-        x: 90
-        y: 6
-        width: 26
-        height: 18
+        x: 91
+        y: 7
+        width: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: SPA_Enemy_Right_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 8
-        width: 28
-        height: 26
+        x: 129
+        y: 9
+        width: 26
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: SPA_Enemy_Right_4
       rect:
         serializedVersion: 2
-        x: 166
-        y: 12
-        width: 28
-        height: 24
+        x: 167
+        y: 13
+        width: 26
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: SPA_Enemy_Right_5
       rect:
         serializedVersion: 2
-        x: 202
-        y: 6
-        width: 26
-        height: 26
+        x: 203
+        y: 7
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1aa9e5e4419075c4486ff56a0304f50d
     internalID: 0
     vertices: []
     indices: 
