@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour
     {
 
         while(isAlive)
+        {
 
         MoveLeft();
         yield return new WaitForSeconds(2);
@@ -34,7 +35,7 @@ public class EnemyController : MonoBehaviour
         MoveRight();
         yield return new WaitForSeconds(2);
 
-
+        }
     }
 
     void MoveLeft()
