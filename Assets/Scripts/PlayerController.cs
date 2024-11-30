@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public float knifeSpeed = 10;
 
-    BoxCollider2D knifeCollider;
+    CapsuleCollider2D knifeCollider;
 
 
 
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider2D>();
         animations = GetComponent<Animator> ();
         spriteRenderer = GetComponent<SpriteRenderer> ();
-        knifeCollider = knife.GetComponent<BoxCollider2D>();
+        knifeCollider = knife.GetComponent<CapsuleCollider2D>();
         
     }
     void Update()
