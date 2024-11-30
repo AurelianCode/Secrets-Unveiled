@@ -10,6 +10,9 @@ public class EnemyController : MonoBehaviour
 
     bool isAlive = true;
 
+    bool isMovingLeft = false;
+    bool isMovingRight = false;
+
     void Start()
     {
         enemyRigid = GetComponent<Rigidbody2D>();
@@ -20,7 +23,7 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
-        
+        FlipEnemy();
     }
 
     private IEnumerator Move()
@@ -30,9 +33,15 @@ public class EnemyController : MonoBehaviour
         {
 
         MoveLeft();
+
+        
+        
         yield return new WaitForSeconds(2);
 
         MoveRight();
+
+        
+
         yield return new WaitForSeconds(2);
 
         }
@@ -42,6 +51,8 @@ public class EnemyController : MonoBehaviour
     {
         
         enemyRigid.linearVelocity = new Vector2(speed, 0);
+        isMovingRight=false;
+        isMovingLeft = true;
 
     }
 
@@ -49,6 +60,21 @@ public class EnemyController : MonoBehaviour
     {
 
         enemyRigid.linearVelocity = new Vector2(-speed, 0);
+        isMovingLeft = false;
+        isMovingRight=true;
+
+    }
+
+    void FlipEnemy()
+    {
+        if(isMovingLeft)
+        {
+            transform.localScale = new Vector3(1,1,1);
+        }
+        if(isMovingRight)
+        {
+            transform.localScale = new Vector3(-1,1,1);
+        }
 
     }
 }
