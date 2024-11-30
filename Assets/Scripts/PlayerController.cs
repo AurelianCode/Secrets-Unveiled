@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        
         if(!isDashing)
         {
         isRunning();
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
     void OnDash(InputValue inputValue)
     {
 
-        if(!isDashing && canDash && playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if(inputValue.isPressed &&!isDashing && canDash && playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             StartCoroutine(Dash());
         }
@@ -192,52 +193,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnWallJump(InputValue inputValue)
-    {
-        if(canWallJump && playerCollider.IsTouchingLayers(LayerMask.GetMask("Wall")))
-        {
-            StartCoroutine(WallJump());
-            Debug.Log("starting");
-
-        }
-        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Wall")))
-
-            {
-                Debug.Log("Player is touching the wall.");
-            }
-    }
-
-private IEnumerator WallJump()
-{
     
-    canWallJump = false;
-    isWallJumping = true;
-
-    // Determine horizontal direction based on facing direction
-    float horizontalDirection = playerCollider.transform.localScale.x > 0 ? -1 : 1;
-
-    // Set linear velocity for the wall jump
-    myRigid.linearVelocity = new Vector2(horizontalDirection * -wallJumpSpeed, jumpPower);
-
-    Debug.Log($"WallJump: HorizontalDirection={horizontalDirection}, Velocity={myRigid.linearVelocity}");
-
+}
     
 
-    // Wait for the duration of the wall jump
-    yield return new WaitForSeconds(walljumpDuration);
 
-    // Reset wall jumping state
-    isWallJumping = false;
 
-    // Wait for cooldown before allowing wall jump again
-    yield return new WaitForSeconds(wallJumpCooldown);
 
-    Debug.Log("Completed");
 
-    canWallJump = true;
-}
-
-}
 
 
 
