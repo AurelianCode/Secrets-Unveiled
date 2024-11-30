@@ -5,7 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 
 
@@ -36,17 +36,6 @@ public class PlayerController : MonoBehaviour
 
     public float dashCooldown = 1.5f;
 
-    public float wallJumpSpeed = 40;
-
-    bool isWallJumping = false;
-
-    bool isOnWall = false;
-
-    bool canWallJump= true;
-
-    public float walljumpDuration = 0.2f;
-
-    public float wallJumpCooldown = 0.1f;
 
     public float climbSpeed = 5;
 
@@ -54,26 +43,31 @@ public class PlayerController : MonoBehaviour
 
     Animator animations;
 
+    SpriteRenderer spriteRenderer;
+
 
     void Start()
     {
         myRigid = GetComponent<Rigidbody2D> ();
         playerCollider = GetComponent<CapsuleCollider2D>();
         animations = GetComponent<Animator> ();
+        spriteRenderer = GetComponent<SpriteRenderer> ();
         
     }
     void Update()
     {
 
         
-        
-
+        if(isAlive)
+{
         if(!isDashing)
         {
         isRunning();
         }
         FlipPlayer();
         OnClimb();
+}
+
 
         
 
@@ -204,8 +198,23 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            myRigid.linearVelocity = new Vector2(myRigid.linearVelocity.x,30);
+            
             Die();
         }
+    }
+
+    public IEnumerator ReloadScene()
+    {
+        Debug.Log("Reload");
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("Attempting to reload the scene...");
+
+
+        SceneManager.LoadScene("Level1");
+
+        Debug.Log("Reloaded Complete");
     }
 
     void Die()
@@ -213,10 +222,21 @@ public class PlayerController : MonoBehaviour
         isAlive = false;
 
         Debug.Log("Dead");
+
+        animations.SetTrigger("Dead");
+
+        spriteRenderer.color = Color.red;
+
+        GetComponent<Collider2D>().enabled = false;
+
+        StartCoroutine(ReloadScene());
+
+        
         
     }
 
-    
+
+     
 }
     
 
