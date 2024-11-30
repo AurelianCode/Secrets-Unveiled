@@ -51,7 +51,9 @@ public class PlayerController : MonoBehaviour
 
     BoxCollider2D knifeCollider;
 
-    public GameObject player;
+    public GameObject knifeSpawn;
+
+    
 
 
 
@@ -62,7 +64,7 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider2D>();
         animations = GetComponent<Animator> ();
         spriteRenderer = GetComponent<SpriteRenderer> ();
-        knifeCollider = player.GetComponent<BoxCollider2D>();
+        
         
     }
     void Update()
@@ -247,9 +249,15 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void OnAttack()
+    void OnAttack(InputValue inputValue)
     {
-        Instantiate(knife, knifeCollider.transform.position, Quaternion.identity);
+     
+     if(inputValue.isPressed)
+        
+        {
+            Instantiate(knife, knifeSpawn.transform.position, knifeSpawn.transform.rotation);
+
+        }
     }
 
 
