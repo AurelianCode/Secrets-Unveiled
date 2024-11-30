@@ -13,9 +13,13 @@ public class EnemyController : MonoBehaviour
     bool isMovingLeft = false;
     bool isMovingRight = false;
 
+    BoxCollider2D enemyCollider;
+
     void Start()
     {
         enemyRigid = GetComponent<Rigidbody2D>();
+
+        enemyCollider = GetComponent<BoxCollider2D>();
 
         StartCoroutine(Move());
     }
@@ -77,4 +81,12 @@ public class EnemyController : MonoBehaviour
         }
 
     }
+
+     void OnCollisionEnter2D(Collision2D collision)
+     {
+         if(collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+        }
+     }
 }
