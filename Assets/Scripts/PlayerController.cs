@@ -45,6 +45,14 @@ public class PlayerController : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
+    public GameObject knife;
+
+    public float knifeSpeed = 10;
+
+    BoxCollider2D knifeCollider;
+
+
+
 
     void Start()
     {
@@ -66,6 +74,8 @@ public class PlayerController : MonoBehaviour
         }
         FlipPlayer();
         OnClimb();
+        OnAttack();
+        
 }
 
 
@@ -233,6 +243,11 @@ public class PlayerController : MonoBehaviour
 
         
         
+    }
+
+    void OnAttack()
+    {
+        Instantiate(knife, knifeCollider.transform.position, Quaternion.identity);
     }
 
 
