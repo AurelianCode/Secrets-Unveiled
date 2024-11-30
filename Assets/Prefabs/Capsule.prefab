@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4899582629247033661}
   - component: {fileID: 1370465198016722222}
   - component: {fileID: 2097082160130095050}
+  - component: {fileID: -4236146192824556289}
   m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
@@ -104,7 +105,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -115,7 +116,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!70 &2097082160130095050
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -153,3 +154,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0031270275, y: 0.15499981}
   m_Size: {x: 0.27000204, y: 0.097701326}
   m_Direction: 1
+--- !u!114 &-4236146192824556289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400568255313784373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98977c3865f9aae4ca793a975aa56fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knifeSpeed: 30

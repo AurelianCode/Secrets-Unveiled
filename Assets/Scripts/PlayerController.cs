@@ -47,11 +47,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject knife;
 
-    public float knifeSpeed = 10;
+    public float knifeSpeed = 30;
 
     BoxCollider2D knifeCollider;
 
     public GameObject knifeSpawn;
+
+   
 
     
 

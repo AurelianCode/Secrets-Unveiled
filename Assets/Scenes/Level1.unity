@@ -1014,7 +1014,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.1003916, g: 0.40227607, b: 0.4528302, a: 0}
+  m_BackGroundColor: {r: 0.20309716, g: 0.25591895, b: 0.26415092, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1184,8 +1184,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.08410467, g: 0.13207549, b: 0.13107428, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
+  m_Intensity: 5
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000e52a17ea2d9b6e1a833bdece7f7a8678f5d222f4111429e1d5178888f3a75058
@@ -11237,6 +11237,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 462489310154544098, guid: 4fc6866fa34d0ef489c02b84d6e22ba5, type: 3}
+      propertyPath: knifeSpawn
+      value: 
+      objectReference: {fileID: 6039587918677627956}
     - target: {fileID: 1296809938700720900, guid: 4fc6866fa34d0ef489c02b84d6e22ba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.54
@@ -11277,6 +11281,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2283599353485504586, guid: 4fc6866fa34d0ef489c02b84d6e22ba5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283599353485504586, guid: 4fc6866fa34d0ef489c02b84d6e22ba5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 3977830768902855949, guid: 4fc6866fa34d0ef489c02b84d6e22ba5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11286,6 +11298,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc6866fa34d0ef489c02b84d6e22ba5, type: 3}
+--- !u!1 &6039587918677627956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1475631610447656961, guid: 4fc6866fa34d0ef489c02b84d6e22ba5, type: 3}
+  m_PrefabInstance: {fileID: 6039587918677627955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6590134110837466756
 PrefabInstance:
   m_ObjectHideFlags: 0
