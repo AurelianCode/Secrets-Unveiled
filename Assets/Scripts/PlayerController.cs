@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider2D>();
         animations = GetComponent<Animator> ();
         spriteRenderer = GetComponent<SpriteRenderer> ();
+        knifeCollider = knife.GetComponent<BoxCollider2D>();
         
     }
     void Update()
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
         FlipPlayer();
         OnClimb();
         OnAttack();
-        
+
 }
 
 
