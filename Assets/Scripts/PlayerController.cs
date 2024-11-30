@@ -262,8 +262,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-     
+    internal class LocalScale
+    {
+    }
 }
     
 
