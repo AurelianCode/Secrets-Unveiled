@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour
 
     public float climbSpeed = 5;
 
+    bool isAlive = true;
+
     Animator animations;
 
 
@@ -62,13 +65,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        
+        while(isAlive)
+        {
+
         if(!isDashing)
         {
         isRunning();
         }
         FlipPlayer();
         OnClimb();
+        }
 
         
         
@@ -191,6 +197,20 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector2(Math.Sign(myRigid.linearVelocity.x),1f);
 
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        isAlive = false;
+        
     }
 
     
