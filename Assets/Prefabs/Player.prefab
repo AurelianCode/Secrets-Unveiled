@@ -169,6 +169,8 @@ MonoBehaviour:
   dashDuration: 0.08
   dashCooldown: 0.7
   climbSpeed: 3
+  knife: {fileID: 2400568255313784373, guid: de8c5447d13d254488fdcbef41b88b56, type: 3}
+  knifeSpeed: 10
 --- !u!70 &6585397882595086230
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
