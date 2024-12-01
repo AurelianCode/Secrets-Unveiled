@@ -110,7 +110,7 @@ public class EnemyController : MonoBehaviour
         enemySprite.color = Color.red;
         Destroy(other.gameObject);
         Invoke(nameof(ResetHit),0.3f);
-        enemySprite.color = Color.white;
+        enemySprite.color = Color.cyan;
         
     }
 
