@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4236146192824556289}
   m_Layer: 8
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1481680883
-  m_SortingLayer: 7
+  m_SortingLayerID: 2022079103
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1883433141014111790, guid: 1770b552456b59b4cbe3639e5235e2c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -114,7 +114,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 1
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 2
 --- !u!70 &2097082160130095050
@@ -151,8 +151,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0031270275, y: 0.15499981}
-  m_Size: {x: 0.27000204, y: 0.097701326}
+  m_Offset: {x: 0.024808621, y: 0.76643115}
+  m_Size: {x: 1.3552574, y: 0.4879771}
   m_Direction: 1
 --- !u!114 &-4236146192824556289
 MonoBehaviour:

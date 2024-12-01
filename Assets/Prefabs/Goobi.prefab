@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5997167441270128417}
   - component: {fileID: 7719615388854158570}
   - component: {fileID: 4445696185092825344}
+  - component: {fileID: 8357648376048878175}
   m_Layer: 13
   m_Name: Goobi
   m_TagString: Enemy
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -570807933488141205, guid: a5ddfdd1f3d4a90449e819b957843a67, type: 3}
-  m_Color: {r: 0.9150943, g: 0.13381095, b: 0.13381095, a: 1}
+  m_Color: {r: 0.11160557, g: 0.6876614, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -198,4 +199,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a80bb8343b533b4d8881cf5782e117a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 90
   speed: 2
+--- !u!58 &8357648376048878175
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512375546924853871}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.375

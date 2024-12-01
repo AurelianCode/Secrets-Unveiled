@@ -1,10 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
+
+
 
 public class EnemyController : MonoBehaviour
 {
     
     Rigidbody2D enemyRigid;
+
+    public float hp = 90;
 
     public float speed = 10;
 
@@ -13,6 +18,10 @@ public class EnemyController : MonoBehaviour
     bool isMovingLeft = false;
     bool isMovingRight = false;
 
+    bool HasBeenHit = false;
+
+    SpriteRenderer enemySprite;
+
     BoxCollider2D enemyCollider;
 
     void Start()
@@ -20,6 +29,8 @@ public class EnemyController : MonoBehaviour
         enemyRigid = GetComponent<Rigidbody2D>();
 
         enemyCollider = GetComponent<BoxCollider2D>();
+
+        enemySprite = GetComponent<SpriteRenderer>();
 
         StartCoroutine(Move());
     }
@@ -89,4 +100,40 @@ public class EnemyController : MonoBehaviour
             //Destroy(collision.gameObject);
         }
      }
+    
+     void OnTriggerEnter2D(Collider2D other)
+{
+    if (other != null && other.gameObject.CompareTag("knife") && hp > 0)
+    {
+        HasBeenHit = true;
+        hp = Mathf.Max(0, hp - 20); 
+        enemySprite.color = Color.red;
+        Destroy(other.gameObject);
+        Invoke(nameof(ResetHit),0.3f);
+        enemySprite.color = Color.white;
+        
+    }
+
+    if (other != null && other.gameObject.CompareTag("knife") && hp <= 0)
+    {
+        Die();   
+    }
 }
+
+void ResetHit()
+{
+    HasBeenHit= false;
+}
+
+void Die()
+{
+
+    enemySprite.color = Color.red;
+    enemyCollider.enabled = false;
+    enemyRigid.linearVelocity = new Vector2(50,20);
+    Destroy(gameObject, 0.5f);
+
+}
+
+}
+
