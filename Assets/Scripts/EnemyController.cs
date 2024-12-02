@@ -25,6 +25,8 @@ public class EnemyController : MonoBehaviour
 
     BoxCollider2D enemyCollider;
 
+    ParticleSystem particleSystem;
+
     void Start()
     {
         enemyRigid = GetComponent<Rigidbody2D>();
@@ -32,6 +34,8 @@ public class EnemyController : MonoBehaviour
         enemyCollider = GetComponent<BoxCollider2D>();
 
         enemySprite = GetComponent<SpriteRenderer>();
+
+        particleSystem = GetComponent<ParticleSystem>();
 
         StartCoroutine(Move());
     }
@@ -112,11 +116,13 @@ public class EnemyController : MonoBehaviour
         enemySprite.color = Color.red;
         Invoke(nameof(ResetHit),0.3f);
         enemySprite.color = Color.cyan;
+        particleSystem.Play();
         
     }
 
     if (other != null && other.gameObject.CompareTag("knife") && hp <= 0)
     {
+        
         Die();   
     }
 }
@@ -133,16 +139,18 @@ void Die()
     {
     enemySprite.color = Color.red;
     enemyCollider.enabled = false;
-    enemyRigid.linearVelocity = new Vector2(0,-20);
-    Destroy(gameObject, 0.5f);
+    enemyRigid.linearVelocity = new Vector2(enemyRigid.linearVelocity.x ,5);
+    
+    Destroy(gameObject, 0.1f);
     }
 
     if(isMovingRight)
     {
         enemySprite.color = Color.red;
         enemyCollider.enabled = false;
-        enemyRigid.linearVelocity = new Vector2(0,-20);
-        Destroy(gameObject, 0.5f);
+        enemyRigid.linearVelocity = new Vector2(enemyRigid.linearVelocity.x , 5);
+        
+        Destroy(gameObject, 0.1f);
     }
 
 

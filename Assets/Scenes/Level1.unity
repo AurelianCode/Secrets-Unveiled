@@ -3278,6 +3278,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goobi (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3302561319822577439, guid: 49881a8549c5d9e48949d4e11694d51c, type: 3}
+      propertyPath: InitialModule.randomizeRotationDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365528542422178082, guid: 49881a8549c5d9e48949d4e11694d51c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8365528542422178082, guid: 49881a8549c5d9e48949d4e11694d51c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.2344656
