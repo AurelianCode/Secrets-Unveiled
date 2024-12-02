@@ -129,10 +129,22 @@ void ResetHit()
 void Die()
 {
 
+    if(isMovingLeft)
+    {
     enemySprite.color = Color.red;
     enemyCollider.enabled = false;
-    enemyRigid.linearVelocity = new Vector2(50,20);
+    enemyRigid.linearVelocity = new Vector2(0,-20);
     Destroy(gameObject, 0.5f);
+    }
+
+    if(isMovingRight)
+    {
+        enemySprite.color = Color.red;
+        enemyCollider.enabled = false;
+        enemyRigid.linearVelocity = new Vector2(0,-20);
+        Destroy(gameObject, 0.5f);
+    }
+
 
 }
 
