@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 
 
 
@@ -85,6 +86,7 @@ public class EnemyController : MonoBehaviour
         if(isMovingLeft)
         {
             transform.localScale = new Vector3(1,1,1);
+            
         }
         if(isMovingRight)
         {
@@ -101,7 +103,7 @@ public class EnemyController : MonoBehaviour
         }
      }
     
-     void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
 {
     if (other != null && other.gameObject.CompareTag("knife") && hp > 0)
     {

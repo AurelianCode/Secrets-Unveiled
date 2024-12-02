@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 public class Knife : MonoBehaviour
@@ -7,10 +8,16 @@ public class Knife : MonoBehaviour
 
     Rigidbody2D knifeRigidBody;
 
+    
+
 
     private Transform playerTransform;
+
+    ParticleSystem particleSystem;
     void Start()
     {
+
+      particleSystem = GetComponent<ParticleSystem>();
 
       knifeRigidBody= GetComponent<Rigidbody2D>();
 
@@ -29,4 +36,20 @@ public class Knife : MonoBehaviour
     { 
         
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+      if(other.gameObject.tag == "Enemy")
+      {
+        //particleSystem.Play();
+      }
+    }
+
+     void OnCollisionEnter2D(Collision2D other)
+     {
+      if(other.gameObject.tag == "Enemy")
+      {
+        particleSystem.Play();
+      }
+     }
 }
