@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,7 +9,7 @@ public class Knife : MonoBehaviour
 
     Rigidbody2D knifeRigidBody;
 
-    
+
 
 
     private Transform playerTransform;
@@ -41,15 +42,16 @@ public class Knife : MonoBehaviour
     {
       if(other.gameObject.tag == "Enemy")
       {
-        //particleSystem.Play();
+        particleSystem.Play();
+        Debug.Log("knife hit enemy");
+        DestroyKnife();
       }
     }
 
-     void OnCollisionEnter2D(Collision2D other)
+
+     private IEnumerator DestroyKnife()
      {
-      if(other.gameObject.tag == "Enemy")
-      {
-        particleSystem.Play();
-      }
+       yield return new WaitForSeconds(0.1f);
+       Destroy(gameObject);
      }
 }
