@@ -42,16 +42,18 @@ public class Knife : MonoBehaviour
     {
       if(other.gameObject.tag == "Enemy")
       {
-        particleSystem.Play();
         Debug.Log("knife hit enemy");
-        DestroyKnife();
+        StartCoroutine(DestroyKnife());
       }
     }
 
 
      private IEnumerator DestroyKnife()
      {
+        particleSystem.Play();
+
        yield return new WaitForSeconds(0.1f);
+
        Destroy(gameObject);
      }
 }

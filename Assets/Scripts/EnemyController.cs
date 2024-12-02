@@ -110,7 +110,6 @@ public class EnemyController : MonoBehaviour
         HasBeenHit = true;
         hp = Mathf.Max(0, hp - 20); 
         enemySprite.color = Color.red;
-        Destroy(other.gameObject);
         Invoke(nameof(ResetHit),0.3f);
         enemySprite.color = Color.cyan;
         

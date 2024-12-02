@@ -218,6 +218,15 @@ public class PlayerController : MonoBehaviour
             
             Die();
         }
+
+        if(collision.gameObject.tag == "Hazards")
+        {
+
+            myRigid.linearVelocity = new Vector2(myRigid.linearVelocity.x,30);
+
+            Die();
+
+        }
     }
 
     public IEnumerator ReloadScene()
