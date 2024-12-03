@@ -8,6 +8,7 @@ TagManager:
   - knife
   - Hazards
   - Ground
+  - Exits
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Wall
   - Bouncy
   - Enemies
-  - 
+  - Exits
   - 
   - 
   - 
@@ -68,6 +69,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3927386853
+    locked: 0
+  - name: Exits
+    uniqueID: 819209817
     locked: 0
   m_RenderingLayers:
   - Default

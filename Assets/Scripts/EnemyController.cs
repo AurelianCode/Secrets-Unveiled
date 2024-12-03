@@ -56,13 +56,13 @@ public class EnemyController : MonoBehaviour
 
         
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         MoveRight();
 
         
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         }
     }
